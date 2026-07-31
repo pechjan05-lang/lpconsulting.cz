@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LP Consulting — Účetnictví, daně a mzdy, Ústí nad Labem</title>
+<meta name="description" content="LP Consulting — vedení účetnictví, daňové evidence, mzdová agenda a daňová přiznání pro firmy, příspěvkové organizace i OSVČ v Ústí nad Labem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<style>
+  :root{
+    --paper: #F2F0EA;
+    --paper-line: #C7C0AE;
+    --ink: #121A1A;
+    --ink-soft: #4A5555;
+    --text: #262420;
+    --accent: #C3006C;
+    --accent-soft: #F3E3EC;
+    --brass: #9B2744;
+    --white: #FCFBF8;
+    --radius: 2px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    color: var(--ink);
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .mono{
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  a{ color: inherit; }
+
+  :focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  .wrap{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* Header */
+  header{
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--paper-line);
+    z-index: 10;
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 20px 28px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .logo img{ display: block; }
+  nav{ display:flex; gap: 28px; }
+  nav a{
+    text-decoration:none;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+  nav a:hover{ color: var(--accent); }
+
+  /* Hero */
+  .hero{
+    padding: 96px 0 72px;
+    position: relative;
+  }
+  .hero .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--brass);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero h1{
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.12;
+    max-width: 14ch;
+  }
+  .hero p.lead{
+    max-width: 52ch;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    margin-top: 22px;
+  }
+  .hero-actions{
+    margin-top: 36px;
+    display:flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    text-decoration:none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary{
+    background: var(--ink);
+    color: var(--white);
+  }
+  .btn-primary:hover{ background: var(--accent); transform: translateY(-1px); }
+  .btn-ghost{
+    border: 1px solid var(--paper-line);
+    color: var(--ink);
+  }
+  .btn-ghost:hover{ border-color: var(--accent); color: var(--accent); }
+
+  .ledger-rule{
+    margin-top: 64px;
+    height: 1px;
+    background: var(--paper-line);
+    position: relative;
+  }
+  .ledger-rule::after{
+    content: '';
+    position:absolute;
+    left:0; top:-8px;
+    width: 60px; height: 1px;
+    background: var(--accent);
+  }
+
+  /* Sections */
+  section{ padding: 72px 0; border-bottom: 1px solid var(--paper-line); }
+  section:last-of-type{ border-bottom: none; }
+
+  .section-head{
+    display:flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 34px;
+  }
+  .section-head .num{
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--brass);
+    font-size: 0.85rem;
+  }
+  .section-head h2{ font-size: 1.7rem; }
+
+  #about .about-body{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  #about p{ color: var(--ink-soft); font-size: 1.02rem; }
+  #about .stat-block{
+    background: var(--white);
+    border: 1px solid var(--paper-line);
+    padding: 26px 24px;
+  }
+  #about .stat-block .figure{
+    font-family: 'Fraunces', serif;
+    font-size: 2.4rem;
+    color: var(--ink);
+    line-height: 1;
+  }
+  #about .stat-block .label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+  #about .stat-block + .stat-block{ margin-top: 18px; }
+
+  /* Services — styled as tax-form line items */
+  .line-item{
+    display:grid;
+    grid-template-columns: 64px 1fr;
+    gap: 20px;
+    align-items: baseline;
+    padding: 18px 0;
+    border-top: 1px solid var(--paper-line);
+  }
+  .line-item:last-child{ border-bottom: 1px solid var(--paper-line); }
+  .line-item .rn{
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--brass);
+    font-size: 0.85rem;
+  }
+  .line-item .desc{
+    font-size: 1.06rem;
+    color: var(--ink);
+  }
+
+  /* Contact */
+  #contact .grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .field{
+    padding: 16px 0;
+    border-top: 1px solid var(--paper-line);
+  }
+  .field:last-child{ border-bottom: 1px solid var(--paper-line); }
+  .field .k{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+  }
+  .field .v{
+    margin-top: 6px;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+  .field .v a{ text-decoration: none; border-bottom: 1px solid var(--paper-line); }
+  .field .v a:hover{ border-color: var(--accent); color: var(--accent); }
+
+  .cta-box{
+    background: var(--ink);
+    color: var(--white);
+    padding: 34px 30px;
+  }
+  .cta-box h3{ color: var(--white); font-size: 1.3rem; margin-bottom: 12px; }
+  .cta-box p{ color: #C7BFBB; margin-bottom: 22px; }
+
+  footer{
+    padding: 32px 0 48px;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 720px){
+    .header-inner{ padding: 16px 20px; flex-direction: column; gap: 14px; align-items: flex-start; }
+    nav{ gap: 18px; }
+    .hero{ padding: 56px 0 48px; }
+    #about .about-body{ grid-template-columns: 1fr; }
+    #contact .grid{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#top"><img src="logo.png" alt="LP Consulting" height="34"></a>
+    <nav>
+      <a href="#top">Domů</a>
+      <a href="#services">Služby</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap" id="top">
+  <section class="hero" style="border-bottom:none; padding-bottom: 0;">
+    <div class="eyebrow">Účetnictví &amp; daně — Ústí nad Labem</div>
+    <h1>Vaše čísla v pořádku, klidně a bez starostí.</h1>
+    <p class="lead">Jsme rostoucí rodinná společnost stavějící na dlouholetých zkušenostech v oblasti vedení účetnictví a mzdové agendy. Vedeme účetnictví obchodním společnostem, pěti příspěvkovým organizacím i fyzickým osobám.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Ozvěte se nám</a>
+      <a class="btn btn-ghost" href="#services">Naše služby</a>
+    </div>
+    <div class="ledger-rule"></div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section id="about">
+    <div class="section-head"><span class="num">§ 01</span><h2>O společnosti</h2></div>
+    <div class="about-body">
+      <p>Jsme rostoucí rodinnou společností stavějící na dlouholetých zkušenostech v oblasti vedení účetnictví a mzdové agendy. Rozkliknutím sekce Služby si můžete zobrazit veškeré portfolio služeb, které vám naše společnost může poskytnout.</p>
+      <div>
+        <div class="stat-block">
+          <div class="figure">5</div>
+          <div class="label">Příspěvkových organizací ve správě</div>
+        </div>
+        <div class="stat-block">
+          <div class="figure">2008</div>
+          <div class="label">Na trhu od tohoto roku (IČO 25008111)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section id="services">
+    <div class="section-head"><span class="num">§ 02</span><h2>Služby</h2></div>
+
+    <div class="line-item">
+      <span class="rn">ř. 01</span>
+      <span class="desc">Vedení daňové evidence</span>
+    </div>
+    <div class="line-item">
+      <span class="rn">ř. 02</span>
+      <span class="desc">Vedení účetnictví</span>
+    </div>
+    <div class="line-item">
+      <span class="rn">ř. 03</span>
+      <span class="desc">Příprava a sestavení daňových přiznání</span>
+    </div>
+    <div class="line-item">
+      <span class="rn">ř. 04</span>
+      <span class="desc">Sestavení přehledů OSVČ</span>
+    </div>
+    <div class="line-item">
+      <span class="rn">ř. 05</span>
+      <span class="desc">Mzdové účetnictví</span>
+    </div>
+    <div class="line-item">
+      <span class="rn">ř. 06</span>
+      <span class="desc">Reporting</span>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section id="contact" style="border-bottom:none;">
+    <div class="section-head"><span class="num">§ 03</span><h2>Kontakt</h2></div>
+    <div class="grid">
+      <div>
+        <div class="field">
+          <div class="k">Telefon</div>
+          <div class="v"><a href="tel:+420774954054">+420 774 954 054</a></div>
+        </div>
+        <div class="field">
+          <div class="k">E-mail</div>
+          <div class="v"><a href="mailto:pech@lpconsulting.cz">pech@lpconsulting.cz</a></div>
+        </div>
+        <div class="field">
+          <div class="k">Adresa</div>
+          <div class="v">Bílinská 1147/1<br>Ústí nad Labem 400 01</div>
+        </div>
+        <div class="field">
+          <div class="k">IČO / DIČ</div>
+          <div class="v mono">25008111 / CZ25008111</div>
+        </div>
+      </div>
+      <div class="cta-box">
+        <h3>Nezávazná poptávka</h3>
+        <p>Napište nám nebo zavolejte — probereme, co váš účetní provoz potřebuje.</p>
+        <a class="btn btn-primary" href="mailto:pech@lpconsulting.cz" style="background:var(--accent);">Napsat e-mail</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 LP Consulting</span>
+    <span>Bílinská 1147/1, Ústí nad Labem</span>
+  </footer>
+</div>
+
+</body>
+</html>
