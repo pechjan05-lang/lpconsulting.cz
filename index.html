@@ -4,28 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LP Consulting | Účetnictví, mzdy a daně v Ústí nad Labem</title>
-<meta name="description" content="Rodinná společnost z Ústí nad Labem. Vedeme účetnictví, daňovou evidenci a mzdy pro obchodní společnosti, příspěvkové organizace i fyzické osoby. Jsme vám k dispozici, kdykoli potřebujete poradit.">
+<meta name="description" content="Rodinná účetní společnost z Ústí nad Labem. Účetnictví vedeme od roku 1994: daňová evidence, mzdy a daně pro firmy, příspěvkové organizace i OSVČ.">
+<link rel="canonical" href="https://lpconsulting.cz/">
 <meta name="theme-color" content="#233741">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:title" content="LP Consulting | Účetnictví, mzdy a daně v Ústí nad Labem">
 <meta property="og:description" content="Rodinná společnost z Ústí nad Labem. Účetnictví, mzdy a daně pro firmy, příspěvkové organizace i fyzické osoby.">
+<meta property="og:url" content="https://lpconsulting.cz/">
+<meta property="og:image" content="https://lpconsulting.cz/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo LP Consulting">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
-<link rel="preload" href="fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   /* Písma jsou uložená přímo na webu (složka fonts), takže se nenačítají z cizích serverů. */
   @font-face{
-    font-family:"Bricolage Grotesque";
-    font-style:normal; font-weight:200 800; font-display:swap;
-    src:url("fonts/bricolage-grotesque-latin-wght-normal.woff2") format("woff2");
+    font-family:"Figtree";
+    font-style:normal; font-weight:300 900; font-display:swap;
+    src:url("fonts/figtree-latin-wght-normal.woff2") format("woff2");
     unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
   }
   @font-face{
-    font-family:"Bricolage Grotesque";
-    font-style:normal; font-weight:200 800; font-display:swap;
-    src:url("fonts/bricolage-grotesque-latin-ext-wght-normal.woff2") format("woff2");
+    font-family:"Figtree";
+    font-style:normal; font-weight:300 900; font-display:swap;
+    src:url("fonts/figtree-latin-ext-wght-normal.woff2") format("woff2");
     unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
   }
   @font-face{
@@ -51,7 +58,7 @@
     --rule:#D3DCE1;
     --on-dark:#E6EDF0;
     --on-dark-muted:#AEBDC6;
-    --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+    --display:"Figtree","Segoe UI",system-ui,sans-serif;
     --text:"Source Serif 4",Georgia,"Times New Roman",serif;
     --gutter:clamp(1.25rem,4vw,2.5rem);
   }
@@ -97,6 +104,8 @@
     gap:1.5rem; padding-block:1.1rem;
   }
   .brand{ display:block; line-height:0; }
+  .brand img{ width:clamp(7rem,15vw,9.5rem); height:auto; }
+  .site-footer img{ width:clamp(7.5rem,15vw,9.5rem); height:auto; }
   .site-header nav{ display:flex; gap:clamp(1rem,3vw,2rem); }
   .site-header nav a{
     font-family:var(--display); font-weight:550; font-size:1rem;
@@ -112,20 +121,14 @@
     gap:clamp(2rem,6vw,5rem); align-items:center;
   }
   .hero h1{
-    font-size:clamp(2.3rem,5.2vw,4rem);
-    line-height:1.04; font-weight:700; letter-spacing:-.025em;
-    max-width:17ch;
+    font-size:clamp(2.1rem,4.6vw,3.5rem);
+    line-height:1.08; font-weight:700; letter-spacing:-.02em;
+    max-width:21ch;
   }
   .hero .lead{
     margin:1.6rem 0 0; max-width:34rem;
     font-size:1.2rem; line-height:1.6; color:var(--muted);
   }
-  .hero .jump{
-    display:inline-block; margin-top:2rem;
-    font-family:var(--display); font-weight:600;
-    color:var(--crimson); text-decoration-thickness:2px; text-underline-offset:.25em;
-  }
-  .hero .jump:hover{ color:var(--slate); }
 
   /* Kruh z loga jako kontaktní bod */
   .disc-wrap{ position:relative; width:min(25rem,100%); margin-inline:auto; }
@@ -184,7 +187,10 @@
   .about .wrap{ display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(1.5rem,6vw,5rem); align-items:start; }
   .about h2{ margin-bottom:0; }
   .about-text p{ margin:0 0 1.15rem; max-width:38rem; font-size:1.12rem; }
-  .about-text p:last-child{ margin-bottom:0; }
+  .team-title{ margin:2.5rem 0 1rem; padding-top:1.75rem; border-top:1px solid var(--rule); max-width:38rem; }
+  .team{ list-style:none; margin:0; padding:0; display:grid; gap:1.1rem; max-width:38rem; }
+  .team .who{ display:block; font-family:var(--display); font-weight:650; font-size:1.15rem; letter-spacing:-.005em; }
+  .team .what{ display:block; color:var(--muted); }
 
   /* Kontakt */
   .contact{ background:var(--slate); color:var(--on-dark); }
@@ -205,7 +211,9 @@
   }
   .contact address{ font-style:normal; font-size:1.1rem; }
   .contact address a{ color:#fff; text-underline-offset:.25em; }
-  .contact .ids{ margin:1.5rem 0 0; color:var(--on-dark-muted); font-size:.98rem; }
+  .contact .hours{ margin:2rem 0 0; max-width:28rem; color:var(--on-dark); }
+  .contact address strong,.contact .ids strong{ font-family:var(--display); font-weight:650; color:#fff; }
+  .contact .ids{ margin:1.75rem 0 0; color:var(--on-dark-muted); font-size:.98rem; max-width:28rem; }
 
   .site-footer{ margin-top:clamp(3rem,7vw,5rem); padding-top:1.75rem; border-top:1px solid #3B525F; }
   .site-footer .wrap{ padding-inline:0; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; }
@@ -236,8 +244,15 @@
   "url":"https://lpconsulting.cz",
   "telephone":"+420774954054",
   "email":"pech@lpconsulting.cz",
+  "legalName":"LP Consulting s.r.o.",
   "taxID":"25008111",
   "vatID":"CZ25008111",
+  "openingHoursSpecification":{
+    "@type":"OpeningHoursSpecification",
+    "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens":"08:00",
+    "closes":"16:00"
+  },
   "address":{
     "@type":"PostalAddress",
     "streetAddress":"Bílinská 1147/1",
@@ -253,7 +268,7 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="logo.png" width="92" height="38" alt="LP Consulting"></a>
+    <a class="brand" href="#top"><img src="logo.png" width="152" height="63" alt="LP Consulting"></a>
     <nav aria-label="Hlavní navigace">
       <a href="#pro-koho">Pro koho</a>
       <a href="#sluzby">Služby</a>
@@ -267,10 +282,8 @@
   <section class="hero" id="top">
     <div class="wrap">
       <div>
-        <h1>Účetnictví, mzdy a daně pro firmy, organizace i živnostníky</h1>
-        <p class="lead">Jsme rodinná společnost z Ústí nad Labem. Vedeme účetnictví a mzdy, připravujeme daňová přiznání a klientům jsme k dispozici, kdykoli potřebují poradit.</p>
-        <a class="jump" href="#sluzby">Přehled služeb</a>
-      </div>
+        <h1>Účetnictví, mzdy a daně v Ústí nad Labem pro firmy, organizace i živnostníky</h1>
+        <p class="lead">Jsme rodinná společnost z Ústí nad Labem a účetnictví se věnujeme od roku 1994. Klientům jsme k dispozici, kdykoli potřebují poradit.</p>      </div>
       <div class="disc-wrap">
         <div class="disc">
           <p class="k">Ozvěte se nám</p>
@@ -354,9 +367,25 @@
     <div class="wrap">
       <h2>O nás</h2>
       <div class="about-text">
-        <p>LP Consulting je rodinná společnost se sídlem v Ústí nad Labem. Vedení účetnictví a mzdové agendě se věnujeme dlouhodobě a pracujeme pro obchodní společnosti, příspěvkové organizace i fyzické osoby.</p>
+        <p>LP Consulting je rodinná společnost se sídlem v Ústí nad Labem. Účetnictví se v naší rodině věnujeme od roku 1994 a pracujeme pro obchodní společnosti, příspěvkové organizace i fyzické osoby.</p>
         <p>Záleží nám na tom, aby klient věděl, v jakém stavu jsou jeho čísla, a mohl se na nás s čímkoli obrátit. Proto s vámi jednáme osobně, srozumitelně vysvětlujeme, co a proč účtujeme, a jsme vám k dispozici, kdykoli potřebujete poradit.</p>
         <p>Rádi se s vámi seznámíme a probereme, co potřebujete.</p>
+
+        <h3 class="team-title">Náš tým</h3>
+        <ul class="team">
+          <li>
+            <span class="who">Ing. Jan Pech</span>
+            <span class="what">Jednatel. Absolvent Vysoké školy ekonomické v Praze, obor Zdanění a daňová politika.</span>
+          </li>
+          <li>
+            <span class="who">Lucie Pechová</span>
+            <span class="what">Jednatelka.</span>
+          </li>
+          <li>
+            <span class="who">Ladislava Pechová</span>
+            <span class="what">S vedením účetnictví začala v roce 1994 a dodnes s námi spolupracuje.</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -369,21 +398,27 @@
         <div>
           <a class="big-tel" href="tel:+420774954054">+420 774 954 054</a>
           <a class="big-mail" href="mailto:pech@lpconsulting.cz">pech@lpconsulting.cz</a>
+          <p class="hours">Pracovní doba je u nás flexibilní, v kanceláři nás ale zastihnete každý pracovní den od 8:00 do 16:00.</p>
         </div>
         <div>
           <address>
-            LP Consulting s.r.o.<br>
+            <strong>Kancelář</strong><br>
             Bílinská 1147/1<br>
             400 01 Ústí nad Labem<br>
-            <a href="https://mapy.cz/zakladni?q=B%C3%ADlinsk%C3%A1%201147%2F1%2C%20%C3%9Ast%C3%AD%20nad%20Labem" target="_blank" rel="noopener noreferrer">Zobrazit na mapě</a>
+            <a href="https://mapy.com/cs/letecka?source=firm&amp;id=13180991&amp;pid=97525435&amp;newest=1&amp;yaw=1.357&amp;fov=1.006&amp;pitch=0.039&amp;x=14.0398182&amp;y=50.6594283&amp;z=17&amp;ovl=8" target="_blank" rel="noopener noreferrer">Zobrazit na mapě a vchod</a>
           </address>
-          <p class="ids">IČO 25008111<br>DIČ CZ25008111</p>
+          <p class="ids">
+            <strong>LP Consulting s.r.o.</strong><br>
+            Sídlo: Přístavní 483/27, Krásné Březno, 400 07 Ústí nad Labem<br>
+            IČO 25008111, DIČ CZ25008111<br>
+            Zapsána v obchodním rejstříku vedeném Krajským soudem v Ústí nad Labem, oddíl C, vložka 11199.
+          </p>
         </div>
       </div>
 
       <footer class="site-footer">
         <div class="wrap">
-          <img src="logo-white.png" width="92" height="38" alt="LP Consulting">
+          <img src="logo-white.png" width="152" height="63" alt="LP Consulting">
           <p>© 2026 LP Consulting s.r.o.</p>
         </div>
       </footer>
